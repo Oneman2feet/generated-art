@@ -18,7 +18,7 @@ function makeTriangle(x, y, size, rotation, color) {
 
 var gridsize = 20;
 function makeRandomTriangle(colorSeed) {
-    var size = gridsize * Math.floor(Math.random() * 10 + 1);
+    var size = gridsize * Math.pow(Math.floor(Math.random() * 4 + 1), 2);
     var color = randomColor({
         luminosity: 'bright',
         hue: colorSeed
@@ -32,6 +32,41 @@ function makeRandomTriangle(colorSeed) {
 
 var color = Math.random() * 256;
 
-for (var i=0; i<1500; i++) {
+for (var i=0; i<200; i++) {
     makeRandomTriangle(color);
+}
+
+Snap.load("/assets/glyph.svg", function (shape) {
+    shape = shape.select("g").attr('id','glyph');
+    colorShape(shape);
+    transformShape(shape, 600, 200, 50, 50, 0, 5, 5);
+    paper.append(shape);
+});
+
+function transformShape(shape, x, y, cx, cy, angle, scalex, scaley) {
+    matrix = new Snap.Matrix();
+    matrix.translate(x, y);
+    matrix.rotate(angle, cx, cy);
+    matrix.scale(scalex, scaley, cx, cy);
+    shape.transform(matrix);
+}
+
+function colorShape(shape) {
+    var groups = shape.selectAll("g").items;
+    for (i in groups) {
+        var group = groups[i];
+        setGroup(group, {
+            'stroke': 'black',
+            'stroke-width': '1px',
+            'fill': randomColor({hue:'orange'})
+        });
+    }
+}
+
+function setGroup(group, attrs) {
+    var paths = group.selectAll("path").items
+    for (i in paths) {
+        var path = paths[i];
+        path.attr(attrs);
+    }
 }
