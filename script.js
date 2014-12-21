@@ -38,7 +38,7 @@ for (var i=0; i<200; i++) {
 }
 */
 
-Snap.load("/assets/glyph.svg", function (shape) {
+Snap.load("/assets/glyph2.svg", function (shape) {
     shape = shape.select("g").attr('id','glyph');
     colorShape(shape);
     transformShape(shape, 600, 200, 50, 50, 0, 5, 5);
