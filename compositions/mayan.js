@@ -1,14 +1,14 @@
 Snap.load("/assets/glyph1.svg", function (shape) {
     shape = shape.select("g").attr('id','glyph');
     colorShape(shape);
-    transformShape(shape, 300, 200, 50, 50, 0, 5, 5);
+    transformShape(shape, 300, 250, 50, 50, 0, 5, 5);
     paper.append(shape);
 });
 
 Snap.load("/assets/glyph2.svg", function (shape) {
     shape = shape.select("g").attr('id','glyph');
     colorShape(shape);
-    transformShape(shape, 900, 200, 50, 50, 0, 5, 5);
+    transformShape(shape, 900, 250, 50, 50, 0, 5, 5);
     paper.append(shape);
 });
 
