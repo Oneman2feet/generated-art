@@ -29,16 +29,20 @@ button {
     transition-duration: 0.2s;
     cursor: hand; cursor: pointer;
     user-select: none;
+    outline: 0;
 
     margin: 10px 0;
     margin-left: 15px;
 }
 
-button:hover, button:focus {
+button:hover {
     background: #356094;
     border: solid 1px #2A4E77;
     text-decoration: none;
-    outline: 0;
+}
+
+button:focus {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 5px 5px
 }
 
 button:active {
